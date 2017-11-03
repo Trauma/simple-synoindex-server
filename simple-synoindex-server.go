@@ -81,9 +81,10 @@ func SynoIndex(w http.ResponseWriter, req *http.Request) {
 	reloadMappings()
 
 	args[1] = remappingPath(args[1])
+	args[2] = remappingPath(args[2])
 
 	// log to stdout
-	log.Printf("SynoIndex: %s %s \n", args[0], args[1])
+	log.Printf("SynoIndex: %s %s %s \n", args[0], args[1], args[2])
 
 	// execute /usr/syno/bin/synoindex
 	cmd := exec.Command("/usr/syno/bin/synoindex", args...)
