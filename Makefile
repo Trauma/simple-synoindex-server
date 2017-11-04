@@ -39,11 +39,15 @@ package_x86_64:
 	cd dist/x86_64 && rm -f *.zip && \
 		zip simple-synoindex-server-x86_64-$(VER).zip $(BINARY) $(BINARY_SERVER) $(INIFILE)
 
+package_darwin:
+	cd dist/darwin && rm -f *.zip && \
+		zip simple-synoindex-server-darwin-$(VER).zip $(BINARY)
+
 clean:
 	rm -f $(BINARY)
 	rm -f $(BINARY_SERVER)
 
-all: x86 x86_64 package_x86 package_x86_64
+all: x86 x86_64 darwin package_x86 package_x86_64 package_darwin
 
 # All are .PHONY for now because dependencyness is hard
 .PHONY: all
